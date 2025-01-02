@@ -18,7 +18,7 @@ A sleek, responsive maintenance page template with animated background grid, pro
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/mershark/maintenance-page.git
+git clone https://github.com/mershark/maintenance-mode.git
 ```
 
 2. Update social media links in `index.html`:
