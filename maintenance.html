@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Maintenance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            padding: 1rem;
+        }
+
+        .bg-grid {
+            position: fixed;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            transform: perspective(500px) rotateX(60deg);
+            animation: grid-move 20s linear infinite;
+        }
+
+        @keyframes grid-move {
+            0% {
+                transform: perspective(500px) rotateX(60deg) translateY(0);
+            }
+            100% {
+                transform: perspective(500px) rotateX(60deg) translateY(30px);
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: clamp(1.5rem, 5vw, 3rem);
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            width: min(90vw, 600px);
+        }
+
+        .glow {
+            position: absolute;
+            width: min(500px, 100vw);
+            height: min(500px, 100vw);
+            background: radial-gradient(circle, rgba(120,0,255,0.4) 0%, rgba(120,0,255,0) 70%);
+            pointer-events: none;
+            z-index: 0;
+            animation: glow-move 10s ease infinite;
+        }
+
+        @keyframes glow-move {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.2); }
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #fff, #7800ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            line-height: 1.6;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 2rem;
+        }
+
+        .loader {
+            width: min(200px, 80%);
+            height: 4px;
+            background: rgba(255,255,255,0.1);
+            margin: 2rem auto;
+            border-radius: 2px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .loader::after {
+            content: '';
+            position: absolute;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(to right, #fff, #7800ff);
+            animation: loading 2s ease infinite;
+            border-radius: 2px;
+        }
+
+        @keyframes loading {
+            0% { left: -40%; }
+            100% { left: 100%; }
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+        }
+
+        .status::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #7800ff;
+            border-radius: 50%;
+            animation: blink 1s ease infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0.5; }
+        }
+
+        .social-links {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: clamp(1rem, 3vw, 2rem);
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #7800ff;
+            transform: translateY(-3px);
+        }
+
+        .fa-whatsapp:hover {
+            color: #25D366;
+        }
+
+        .fa-instagram:hover {
+            color: #E4405F;
+        }
+
+        .fa-facebook:hover {
+            color: #1877F2;
+        }
+
+        .fa-tiktok:hover {
+            color: #69C9D0;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                border-radius: 15px;
+            }
+            
+            .status {
+                padding: 0.4rem 0.8rem;
+            }
+        }
+
+        @media (max-width: 350px) {
+            .social-links {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-grid"></div>
+    <div class="glow"></div>
+    <div class="container">
+        <h1>System Upgrade</h1>
+        <p>We're implementing major improvements to enhance your experience. Our team is working diligently to complete the upgrade.</p>
+        <div class="loader"></div>
+        <div class="status">Maintenance in Progress</div>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+    </div>
+</body>
+</html>
