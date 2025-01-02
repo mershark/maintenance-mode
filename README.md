@@ -51,7 +51,7 @@ git clone https://github.com/mershark/maintenance-mode.git
 
 ## Author
 
-**Mershark Oheneba Takyi**
+Mershark Takyi - [Github](https://github.com/mershark) / [LinkedIn](https://www.linkedin.com/in/mershark/)  
 
 ## License
 
