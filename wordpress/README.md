@@ -15,7 +15,7 @@ This functionality allows you to enable or disable maintenance mode on your Word
 
 3. **Set Up Maintenance Page**  
    - Create a page with the slug `/maintenance/`.
-   - You can copy and paste the maintenance page here [maintenance](.,maintenance.html) or create your own 
+   - You can copy and paste the maintenance page here [maintenance](../maintenance.html) or create your own 
 
 4. **Clear Cache**  
    If you’re using a caching plugin, clear the cache to ensure the new functionality works as expected.
